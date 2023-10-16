@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="838.0" prefWidth="1197.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.viewControllers.PatientInformationController">
+  <children>
+    <MenuBar prefWidth="1141.0" style="-fx-background-color: #527c88;" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane style="-fx-background-color: #063847;">
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Patient ID" textAlignment="CENTER" textFill="WHITE" wrapText="false">
+              <font>
+                <Font size="18.0" fx:id="x1" />
+              </font>
+            </Label>
+                  <TextField fx:id="textId" layoutX="130.0" layoutY="15.0" prefHeight="25.0" prefWidth="78.0" />
+                  <Button fx:id="view" layoutX="14.0" layoutY="86.0" mnemonicParsing="false" onAction="#view" style="-fx-background-color: #2e4450;" text="View" textFill="#16c2d5" />
+                  <Button fx:id="add" layoutX="14.0" layoutY="119.0" mnemonicParsing="false" onAction="#insert" style="-fx-background-color: #2e4450;" text="Add" textFill="#16c2d5" />
+                  <Button fx:id="modify" layoutX="14.0" layoutY="152.0" mnemonicParsing="false" onAction="#update" style="-fx-background-color: #2e4450;" text="Modify" textFill="#16c2d5" />
+                  <Button fx:id="clear" layoutX="14.0" layoutY="188.0" mnemonicParsing="false" onAction="#clear" style="-fx-background-color: #2e4450;" text="Clear" textFill="#16c2d5" />
+                  <ImageView fx:id="QRCode" fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../QRCode.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="36.0" layoutY="513.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #2e4450;" text="Google Authenticator QR Code" textFill="#16c2d5">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="back" layoutX="21.0" layoutY="739.0" mnemonicParsing="false" onAction="#switchToDashBoard" style="-fx-background-color: grey;" text="Back" textFill="#16c2d5" />
+          </children>
+        </AnchorPane>
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="788.0" prefWidth="592.0" style="-fx-background-color: white;">
+              <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="49.0" style="&#10;" text="First name" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x11" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="11.0" layoutY="86.0" style="&#10;" text="Middle name" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x12" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="125.0" style="&#10;" text="Last name" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x13" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="167.0" style="&#10;" text="Address" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x14" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="206.0" style="&#10;" text="City" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x15" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="246.0" style="&#10;" text="State" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x16" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="288.0" style="&#10;" text="Telephone" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x17" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="325.0" style="&#10;" text="Email" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x18" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textFirstName" layoutX="267.0" layoutY="50.0" />
+                        <TextField fx:id="textMiddleName" layoutX="267.0" layoutY="87.0" />
+                        <TextField fx:id="textLastName" layoutX="267.0" layoutY="126.0" />
+                        <TextField fx:id="textAddress" layoutX="267.0" layoutY="168.0" />
+                        <TextField fx:id="textCity" layoutX="267.0" layoutY="207.0" />
+                        <TextField fx:id="textState" layoutX="267.0" layoutY="247.0" />
+                        <TextField fx:id="textTelephone" layoutX="267.0" layoutY="288.0" />
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="367.0" style="&#10;" text="Date of birth" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x181" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="411.0" style="&#10;" text="Health Insurance number" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x1811" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="451.0" style="&#10;" text="Emergency contact number" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x18111" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textEmail" layoutX="267.0" layoutY="326.0" />
+                        <TextField fx:id="textHealthInsuranceNumber" layoutX="267.0" layoutY="412.0" />
+                        <TextField fx:id="textEmergencyContactNumber" layoutX="267.0" layoutY="452.0" />
+                        <Label layoutX="11.0" layoutY="14.0" text="Personal Information" textFill="#2e4450">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="11.0" layoutY="498.0" text="Medical History" textFill="#2e4450">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="536.0" style="&#10;" text="Allergies" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x111" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="571.0" style="&#10;" text="Past medical conditions" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x1111" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="606.0" style="&#10;" text="Surgeries or procedures" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x11111" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="643.0" style="&#10;" text="Medications" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x111111" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="15.0" layoutY="681.0" style="&#10;" text="Immunisations" textAlignment="CENTER" textFill="#10217d" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x1111111" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textAllergies" layoutX="268.0" layoutY="537.0" />
+                        <TextField fx:id="textPastMedicalConditions" layoutX="267.0" layoutY="572.0" />
+                        <TextField fx:id="textSurgeriesOrProcedures" layoutX="268.0" layoutY="607.0" />
+                        <TextField fx:id="textMedications" layoutX="268.0" layoutY="644.0" />
+                        <TextField fx:id="textImmunisations" layoutX="268.0" layoutY="682.0" />
+                        <DatePicker fx:id="datePicker" layoutX="267.0" layoutY="368.0" />
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+        <AnchorPane style="-fx-background-color: #063847;">
+          <children>
+            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="WHITE" wrapText="false" />
+                  <TextArea fx:id="textDetails" layoutX="14.0" layoutY="41.0" prefHeight="320.0" prefWidth="271.0" wrapText="true" />
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="381.0" style="&#10;" text="Family Medical History" textAlignment="CENTER" textFill="WHITE" wrapText="false">
+                     <font>
+                        <Font size="18.0" fx:id="x19" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="textFamilyMedicalHistory" layoutX="14.0" layoutY="415.0" prefHeight="150.0" prefWidth="271.0" wrapText="true" />
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="584.0" style="&#10;" text="Progress Notes" textAlignment="CENTER" textFill="WHITE" wrapText="false">
+                     <font>
+                        <Font size="18.0" fx:id="x191" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="textProgressNotes" layoutX="14.0" layoutY="624.0" prefHeight="150.0" prefWidth="271.0" wrapText="true" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" prefWidth="1183.0" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="UHDD status" textFill="#0d0d0d" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+        </Label>
+        <Pane prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #527c88;" HBox.hgrow="ALWAYS" />
+        <Label fx:id="labelStatus" font="$x3" maxWidth="-1.0" text="Not Connected" textFill="#f20707" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>

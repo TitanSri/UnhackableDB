@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.viewControllers.LoginController">
+   <children>
+      <Pane prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Text layoutX="3.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your password has expired. Please reset to continue." textAlignment="CENTER" wrappingWidth="194.6891794204712" />
+            <Button layoutX="18.0" layoutY="63.0" mnemonicParsing="false" onAction="#onMouseClickedCancelBtn" text="Cancel" />
+            <Button fx:id="btnPwdReset" layoutX="117.0" layoutY="64.0" mnemonicParsing="false" onAction="#handlePwdResetAction" text="Reset" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

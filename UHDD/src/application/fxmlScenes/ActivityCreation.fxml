@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.viewControllers.ActivityCreationController">
+   <children>
+      <Rectangle fx:id="ucRectanglePane" arcHeight="20.0" arcWidth="20.0" fill="#fcfcfc" height="400.0" layoutX="315.0" layoutY="41.0" stroke="#e4e4e4" strokeType="INSIDE" style="-fx-fill: #edf0ff;" width="305.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Text fill="#063847" layoutX="381.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new activity">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fill="#063847" layoutX="342.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activity Creator">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <TextField fx:id="clientGrabberCreator" layoutX="435.0" layoutY="178.0" promptText="enter the client name" stylesheets="@application.css" />
+      <TextField fx:id="doctorGrabberCreator" layoutX="435.0" layoutY="212.0" promptText="enter the doctor name" stylesheets="@application.css" />
+      <TextField fx:id="patientIdGrabberCreator" layoutX="435.0" layoutY="252.0" promptText="enter the Patient Id" stylesheets="@application.css" />
+      <TextField fx:id="timeGrabberCreator" layoutX="435.0" layoutY="288.0" promptText="enter the time 1 to 24" stylesheets="@application.css" />
+      <DatePicker fx:id="dateGrabberCreator" layoutX="416.0" layoutY="318.0" promptText="select a date" />
+      <Text fill="#063847" layoutX="339.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client name:" wrappingWidth="85.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#063847" layoutX="337.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctor name:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#063847" layoutX="348.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Id:">
+         <font>
+            <Font size="15.0" /> 
+         </font>
+      </Text>
+      <Text fill="#063847" layoutX="364.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#063847" layoutX="364.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnUCBack" layoutX="374.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#switchToHomepage" stylesheets="@application.css" text="Back" textFill="#063847">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="createNewActivity" layoutX="475.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#handleCreateNewActivityAction" style="-fx-background-color: #063847;" stylesheets="@application.css" text="Create Activity" textFill="#fcfcfc">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Text fx:id="actionGrabberCreator" fill="#b50f0f" layoutX="364.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="223.0" />
+   </children>
+</AnchorPane>

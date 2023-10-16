@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.viewControllers.UI">
+   <children>
+      <TextField alignment="CENTER" layoutX="303.0" layoutY="31.0" prefHeight="34.0" prefWidth="417.0" text="Search" />
+      <Line endX="480.0" layoutX="398.0" layoutY="82.0" startX="-100.0" />
+      <Line endX="308.0" endY="-59.0" layoutX="431.0" layoutY="92.0" startX="308.0" startY="-27.0" />
+      <Pane layoutX="768.0" layoutY="27.0" prefHeight="45.0" prefWidth="40.0" style="-fx-background-color: grey;" />
+      <Text layoutX="824.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dr C">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#0349ff" layoutX="298.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Info">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#0349ff" layoutX="420.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overview">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#0349ff" layoutX="536.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Progress &amp; Plan">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#0349ff" layoutX="687.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documents">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#0349ff" layoutX="809.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visits">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Pane layoutY="-5.0" prefHeight="736.0" prefWidth="261.0" style="-fx-background-color: #03a9f4;">
+         <children>
+            <Pane layoutX="23.0" layoutY="29.0" prefHeight="58.0" prefWidth="61.0" style="-fx-background-color: grey;" />
+            <Pane layoutX="45.0" layoutY="165.0" prefHeight="58.0" prefWidth="61.0" style="-fx-background-color: grey;" />
+            <Pane layoutX="45.0" layoutY="273.0" prefHeight="58.0" prefWidth="61.0" style="-fx-background-color: grey;" />
+            <Pane layoutX="45.0" layoutY="378.0" prefHeight="58.0" prefWidth="61.0" style="-fx-background-color: grey;" />
+            <Pane layoutX="45.0" layoutY="478.0" prefHeight="58.0" prefWidth="61.0" style="-fx-background-color: grey;" />
+            <Pane layoutX="45.0" layoutY="566.0" prefHeight="58.0" prefWidth="61.0" style="-fx-background-color: grey;" />
+            <Text fill="WHITE" layoutX="93.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UHDD Dr Dashboard" wrappingWidth="101.4453125">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="130.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="130.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedules">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="130.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Directory" wrappingWidth="112.4296875">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="130.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="129.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Billing">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Pane layoutX="45.0" layoutY="663.0" prefHeight="58.0" prefWidth="61.0" style="-fx-background-color: grey;" />
+            <Text fill="WHITE" layoutX="129.0" layoutY="698.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="283.0" layoutY="124.0" prefHeight="265.0" prefWidth="214.0" style="-fx-border-color: black;">
+         <children>
+            <Text layoutX="37.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent Diagnoses" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Diagnoses)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="40.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Diagnosis">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Diagnoses)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Diagnoses)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="536.0" layoutY="124.0" prefHeight="265.0" prefWidth="368.0" style="-fx-border-color: black;">
+         <children>
+            <Text layoutX="37.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visits History" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Dr)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="40.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Visit">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="158.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Dr)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="158.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Dr)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="158.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Dr)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="158.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="263.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View notes">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="263.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View notes">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="263.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View notes">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="263.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View notes">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="283.0" layoutY="431.0" prefHeight="265.0" prefWidth="207.0" style="-fx-border-color: black;">
+         <children>
+            <Text layoutX="37.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perscriptions" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perscription Item">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="40.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Perscription">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perscription Item">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perscription Item">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(date)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="497.0" layoutY="431.0" prefHeight="265.0" prefWidth="408.0" style="-fx-border-color: black;">
+         <children>
+            <Text layoutX="37.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Progress Report" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="273.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove Graph">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <BarChart alternativeColumnFillVisible="true" barGap="12.0" layoutY="36.0" prefHeight="195.0" prefWidth="250.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <Text layoutX="14.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Tasks completed (%)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#0349ff" layoutX="273.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modify Graph">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="237.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RemainingTasks (%)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

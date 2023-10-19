@@ -130,7 +130,7 @@ public class PatientDirectoryController {
 	
 	public void switchToCalendar(MouseEvent mouseEvent) throws Exception {
 		 if (myCalendar == null) {
-		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/fxmlScenes/Calendar.fxml"));
+		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/application/fxmlScenes/Calendar_new.fxml"));
 		 calendarRoot = (Parent) fxmlLoader.load();
 		 calendarStage = new Stage();
 		 calendarStage.setScene(new Scene(calendarRoot));

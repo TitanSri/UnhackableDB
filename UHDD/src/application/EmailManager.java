@@ -26,7 +26,7 @@ public class EmailManager {
 //    private  String smtpPassword = "Nap00764";
     
     private  String smtpHost = "smtp.gmail.com";
-    private  String smtpPassword = "ieafubyysncadghu";
+    private  String smtpPassword = "**";
     private  String smtpUser = "tobez103@gmail.com";
     
     /**

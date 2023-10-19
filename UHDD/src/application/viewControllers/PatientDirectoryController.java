@@ -493,6 +493,7 @@ public class PatientDirectoryController {
 			gender = "M";
 		} else {
 			txtGenderError.setText("Please select a gender.");
+			txtGenderError.setVisible(true);
 			isValid = false;
 		}
 

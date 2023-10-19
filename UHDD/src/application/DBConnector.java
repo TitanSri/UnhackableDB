@@ -54,9 +54,11 @@ public class DBConnector {
 		
 			// connection for database...make sure the URL is correct JDBC:MYSQL
 			// connect to Jonathan's cloud
-			String url="jdbc:mysql://itc303-db01.mysql.database.azure.com:3306/testdb?useSSL=true";
-			String username = "itc303admin";
-			String password = Decryptor.decrypt("HTTjDc5keIHeQ48mt3A+Vw=="); // Hash this password using a function and unhash it when it's called for this line so its not stored in plain text (makes it harder for people to access DB)
+//			String url="jdbc:mysql://itc303-db01.mysql.database.azure.com:3306/testdb?useSSL=true";
+			String url="jdbc:mysql://db-mysql.c2rdrl5sxil5.ap-southeast-2.rds.amazonaws.com:3306/UHDD?useSSL=true";
+			String username = "admin";
+//			String password = Decryptor.decrypt("HTTjDc5keIHeQ48mt3A+Vw=="); // Hash this password using a function and unhash it when it's called for this line so its not stored in plain text (makes it harder for people to access DB)
+			String password = "**";
 		
 			// connect to the database
 			try {

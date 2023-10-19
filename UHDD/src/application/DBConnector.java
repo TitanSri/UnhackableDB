@@ -310,7 +310,7 @@ public class DBConnector {
 		 */
 		public void createNewNoteExecuteQuery(String patientId, String doctorId, String noteText, String noteEnteredDate, String scriptIncluded)
 		  throws SQLException {
-			String sql = "INSERT INTO testdb.patient_notes (patientId, doctorId, noteText, noteEnteredDate, scriptIncluded) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO UHDD.patient_notes (patientId, doctorId, noteText, noteEnteredDate, scriptIncluded) VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			statement.setString(2, doctorId);
@@ -343,7 +343,7 @@ public class DBConnector {
 			    String dateOfBirth, String healthInsuranceNumber, String emergencyContactNumber,
 			    String EncryptionKey, Connection connection) throws SQLException {
 			    
-			    String sql = "INSERT INTO testdb.patient_data " +
+			    String sql = "INSERT INTO UHDD.patient_data " +
 			                 "(firstName, middleName, lastName, gender, address, city, state, " +
 			                 "telephone, email, dateOfBirth, healthInsuranceNumber, emergencyContactNumber, EncryptionKey) " +
 			                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -379,7 +379,7 @@ public class DBConnector {
 		 */
 		public void createNewMedicationExecuteQuery(String patientId, String medication_name, String prescribed_date, String expired_date, String noteId, String prescribedBy)
 		  throws SQLException {
-			String sql = "INSERT INTO testdb.medication_data (patientId, medication_name, prescribed_date, expired_date, noteId, prescribedBy) VALUES (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO UHDD.medication_data (patientId, medication_name, prescribed_date, expired_date, noteId, prescribedBy) VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			statement.setString(2, medication_name);
@@ -402,7 +402,7 @@ public class DBConnector {
 		 */
 		public void createNewDiagnosisExecuteQuery(String patientId, String diagnosisName, String diagnosisSeverity, String diagnosedDate, String diagnosingDrId)
 			throws SQLException {
-			String sql = "INSERT INTO testdb.patient_diagnoses "
+			String sql = "INSERT INTO UHDD.patient_diagnoses "
 					+ "(patientId, diagnosisName, diagnosisSeverity, diagnosedDate, diagnosingDrId) "
 					+ "VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -421,7 +421,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public void CreateNewNoteDiagnosisIdLink(String noteId, String diagnosisId) throws SQLException {
-			String sql = "INSERT INTO testdb.diagnosis_notes (diagnosisId, noteId) VALUES (?, ?)";
+			String sql = "INSERT INTO UHDD.diagnosis_notes (diagnosisId, noteId) VALUES (?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, diagnosisId);
 			statement.setString(2, noteId);
@@ -457,7 +457,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public void CreateNewProgressPlanExecuteQuery(String diagnosisId, String initialDetails, String progressPlanGoal, String expectedRemediationDate) throws SQLException{
-			String sql = "INSERT INTO testdb.progress_plan (diagnosisId, initialDetails, progressPlanGoal, expectedRemediationDate) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO UHDD.progress_plan (diagnosisId, initialDetails, progressPlanGoal, expectedRemediationDate) VALUES (?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, diagnosisId);
 			statement.setString(2, initialDetails);
@@ -473,7 +473,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public boolean verifyDiagnosisIdExists(String diagnosisId) throws SQLException {
-			String sql = "SELECT COUNT(*) FROM testdb.patient_diagnoses WHERE diagnosisId = ?";
+			String sql = "SELECT COUNT(*) FROM UHDD.patient_diagnoses WHERE diagnosisId = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, diagnosisId);
 			ResultSet resultSet = statement.executeQuery();
@@ -491,7 +491,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public boolean verifyPatientIdExists(String patientId) throws SQLException {
-			String sql = "SELECT COUNT(*) FROM testdb.patient_data WHERE patientId = ?";
+			String sql = "SELECT COUNT(*) FROM UHDD.patient_data WHERE patientId = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			ResultSet resultSet = statement.executeQuery();
@@ -509,7 +509,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnOTPSecretKeyFromUser(String username) throws SQLException {
-			String sql = "SELECT OTPSecretKey FROM testdb.user_details WHERE username = ?";
+			String sql = "SELECT OTPSecretKey FROM UHDD.user_details WHERE username = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, username);
 
@@ -523,7 +523,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsFromUser(String username) throws SQLException {
-			String sql = "SELECT * FROM testdb.user_details WHERE username = ?";
+			String sql = "SELECT * FROM UHDD.user_details WHERE username = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, username);
 
@@ -538,7 +538,7 @@ public class DBConnector {
 		 */
 		public ResultSet QueryReturnResultsForUserSession(String username) throws SQLException {
 			// Updated SQL query to select only id, username, and role
-			String sql = "SELECT id, username, role FROM testdb.user_details WHERE username = ?";
+			String sql = "SELECT id, username, role FROM UHDD.user_details WHERE username = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, username);
 		
@@ -551,7 +551,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsFromPatients() throws SQLException {
-			String sql = "SELECT * FROM testdb.patient_data";
+			String sql = "SELECT * FROM UHDD.patient_data";
 			PreparedStatement statement = connection.prepareStatement(sql);
 	        return statement.executeQuery();
 	    }
@@ -562,7 +562,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsFromMedication() throws SQLException {
-			String sql = "SELECT * FROM testdb.medication_data";
+			String sql = "SELECT * FROM UHDD.medication_data";
 			PreparedStatement statement = connection.prepareStatement(sql);
 	        return statement.executeQuery();
 	    }
@@ -574,7 +574,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsFromPatientId(String patientId) throws SQLException {
-			String sql = "SELECT * FROM testdb.test3 WHERE ID = ?";
+			String sql = "SELECT * FROM UHDD.test3 WHERE ID = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			System.out.println(sql);
@@ -588,7 +588,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsMedicationFromPatientId(String patientId) throws SQLException {
-			String sql = "SELECT * FROM testdb.medication_data WHERE patientId = ?";
+			String sql = "SELECT * FROM UHDD.medication_data WHERE patientId = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			System.out.println(sql);
@@ -602,7 +602,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsDiagnosisFromPatientId(String patientId) throws SQLException {
-			String sql = "SELECT * FROM testdb.patient_diagnoses WHERE patientId = ?";
+			String sql = "SELECT * FROM UHDD.patient_diagnoses WHERE patientId = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			System.out.println(sql);
@@ -616,7 +616,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsNotesFromPatientId(String patientId) throws SQLException {
-			String sql = "SELECT * FROM testdb.patient_notes WHERE patientId = ? ORDER BY noteEnteredDate DESC";
+			String sql = "SELECT * FROM UHDD.patient_notes WHERE patientId = ? ORDER BY noteEnteredDate DESC";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			System.out.println(sql);
@@ -630,7 +630,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsFromPatientDataId(String patientId) throws SQLException {
-			String sql = "SELECT * FROM testdb.patient_data WHERE patientId = ?";
+			String sql = "SELECT * FROM UHDD.patient_data WHERE patientId = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 	        return statement.executeQuery();
@@ -647,7 +647,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryNoteIdForDiagnosis(String patientId, String doctorId, String noteText, String noteEnteredDate, String scriptIncluded) throws SQLException {
-			String sql = "SELECT noteId FROM testdb.patient_notes WHERE patientId = ? AND doctorId = ? AND noteText = ? AND noteEnteredDate = ? AND scriptIncluded = ?";
+			String sql = "SELECT noteId FROM UHDD.patient_notes WHERE patientId = ? AND doctorId = ? AND noteText = ? AND noteEnteredDate = ? AND scriptIncluded = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			statement.setString(2, doctorId);
@@ -670,7 +670,7 @@ public class DBConnector {
 		 */
 		public ResultSet QueryDiagnosisId(String patientId, String diagnosisName, String diagnosisSeverity, String diagnosedDate, String diagnosingDrId)
 			throws SQLException {
-			String sql = "SELECT diagnosisId FROM testdb.patient_diagnoses WHERE patientId = ? AND diagnosisName = ? AND diagnosisSeverity = ? AND diagnosedDate = ? AND diagnosingDrId = ?";
+			String sql = "SELECT diagnosisId FROM UHDD.patient_diagnoses WHERE patientId = ? AND diagnosisName = ? AND diagnosisSeverity = ? AND diagnosedDate = ? AND diagnosingDrId = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			statement.setString(2, diagnosisName);
@@ -687,7 +687,7 @@ public class DBConnector {
 		 * @throws SQLException
 		 */
 		public ResultSet QueryReturnResultsFromPatientName(String patientName) throws SQLException {
-			String sql = "SELECT * FROM testdb.test3 WHERE firstName like ? and lastName like ?";
+			String sql = "SELECT * FROM UHDD.test3 WHERE firstName like ? and lastName like ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			String[] name = patientName.split(" ");
 			String fName = name[0];
@@ -799,7 +799,7 @@ public class DBConnector {
 		 */
 		public void getCalendarEvents() throws SQLException {
 			// grabs all the rows from the doctor_calendar DB
-			String query = "SELECT * FROM testdb.doctor_calendar";
+			String query = "SELECT * FROM UHDD.doctor_calendar";
 			ResultSet rs = this.executeQueryReturnResults(query);
 			//Reduce noise
 			//System.out.println(rs.getRow());

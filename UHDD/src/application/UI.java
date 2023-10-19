@@ -563,7 +563,7 @@ public class UI {
 		data = FXCollections.observableArrayList();
         try {
             //MySql query table
-            String SQL = "SELECT * from `testdb`.`test3`";
+            String SQL = "SELECT * from `UHDD`.`test3`";
             //ResultSet
             ResultSet rs = connection.createStatement().executeQuery(SQL);
 
@@ -606,7 +606,7 @@ public class UI {
 	
 	@FXML public void view(ActionEvent event) throws ClassNotFoundException, SQLException, FileNotFoundException {
 		System.out.println("viewed");
-		String query = "SELECT * FROM `testdb`.`test3` WHERE ID = '" + textId.getText().trim() + "'";
+		String query = "SELECT * FROM `UHDD`.`test3` WHERE ID = '" + textId.getText().trim() + "'";
 		
 		try {
 			// execute statement
@@ -621,7 +621,7 @@ public class UI {
 	
 	@FXML private void update(ActionEvent event) {
 		// TODO Auto-generated method stub
-		String updateQuery = "UPDATE `testdb`.`test3` SET "
+		String updateQuery = "UPDATE `UHDD`.`test3` SET "
 				+ "FirstName = '" + textFirstName.getText().trim() + 
 				"', MiddleName = '" + textMiddleName.getText().trim()+ 
 				"', LastName = '" + textLastName.getText().trim() + 
@@ -663,7 +663,7 @@ public class UI {
 	
 	@FXML private void insert(ActionEvent event) {
 		
-		String insertQuery = "INSERT INTO `testdb`.`test3` "
+		String insertQuery = "INSERT INTO `UHDD`.`test3` "
 				+ "(ID, FirstName, MiddleName, LastName, Address, City, State, Telephone, Email) "
 				+ "VALUES ('" + textId.getText().trim() + "', '" + textFirstName.getText().trim() + 
 				"', '" + textMiddleName.getText().trim()+ "', '" + textLastName.getText().trim() + 
@@ -748,7 +748,7 @@ public class UI {
 		System.out.println("Driver loaded:");
 		
 		// connection for database...make sure the URL is correct JDBC:MYSQL
-		String url = "jdbc:mysql://127.0.0.1:3306/testdb";
+		String url = "jdbc:mysql://127.0.0.1:3306/UHDD";
 		String username = "root";
 		String password = "1234";
 		

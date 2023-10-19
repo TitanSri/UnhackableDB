@@ -4,6 +4,9 @@ package application;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.imageio.ImageIO;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -11,6 +14,9 @@ import javax.mail.util.ByteArrayDataSource;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Properties;
 
 /**
@@ -26,7 +32,7 @@ public class EmailManager {
 //    private  String smtpPassword = "Nap00764";
     
     private  String smtpHost = "smtp.gmail.com";
-    private  String smtpPassword = "**";
+//    private  String smtpPassword = "**";
     private  String smtpUser = "tobez103@gmail.com";
     
     /**
@@ -37,8 +43,16 @@ public class EmailManager {
      * @param image
      * @throws MessagingException
      * @throws IOException
+     * @throws BadPaddingException 
+     * @throws IllegalBlockSizeException 
+     * @throws NoSuchPaddingException 
+     * @throws InvalidKeySpecException 
+     * @throws NoSuchAlgorithmException 
+     * @throws InvalidKeyException 
      */
-    public void sendEmailWithImage(String to, String subject, String body, BufferedImage image) throws MessagingException, IOException {
+    public void sendEmailWithImage(String to, String subject, String body, BufferedImage image) throws MessagingException, IOException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
+    	String smtpPassword = Decryptor.decrypt("r8HCoVvVLWMEFK1QvUFKqAifDK29WIDrSg+8fgo/l10=");
+    	
         Properties properties = new Properties();
         properties.put("mail.smtp.host", smtpHost);
         properties.put("mail.smtp.port", smtpPort);

@@ -58,7 +58,7 @@ public class DBConnector {
 			String url="jdbc:mysql://db-mysql.c2rdrl5sxil5.ap-southeast-2.rds.amazonaws.com:3306/UHDD?useSSL=true";
 			String username = "admin";
 //			String password = Decryptor.decrypt("HTTjDc5keIHeQ48mt3A+Vw=="); // Hash this password using a function and unhash it when it's called for this line so its not stored in plain text (makes it harder for people to access DB)
-			String password = "**";
+			String password = Decryptor.decrypt("VVXyG10QiL0ZdLVS8Zk/to1UsNDZ7UBaH7kyTXwxcH4=");
 		
 			// connect to the database
 			try {

@@ -33,7 +33,7 @@ public class EmailManager {
     
     private  String smtpHost = "smtp.gmail.com";
 //    private  String smtpPassword = "**";
-    private  String smtpUser = "tobez103@gmail.com";
+    private  String smtpUser = "csuuhdd@gmail.com";
     
     /**
      * This is used for the user creation 
@@ -51,7 +51,7 @@ public class EmailManager {
      * @throws InvalidKeyException 
      */
     public void sendEmailWithImage(String to, String subject, String body, BufferedImage image) throws MessagingException, IOException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
-    	String smtpPassword = Decryptor.decrypt("r8HCoVvVLWMEFK1QvUFKqAifDK29WIDrSg+8fgo/l10=");
+    	String smtpPassword = Decryptor.decrypt("uR1zA/cZCpYuPsEBE8b71wifDK29WIDrSg+8fgo/l10=");
     	
         Properties properties = new Properties();
         properties.put("mail.smtp.host", smtpHost);

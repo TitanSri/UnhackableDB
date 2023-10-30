@@ -531,7 +531,7 @@ public class PatientDirectoryController {
 				if (os.contains("win")) {
 					// Windows
 					String userProfile = System.getenv("USERPROFILE");
-					filePath = userProfile + "\\Documents\\encyptionKey.txt";
+					filePath = userProfile + "\\Documents\\encryptionKey.txt";
 				} else if (os.contains("mac")) {
 					// macOS
 					filePath = System.getProperty("user.home") + "/Documents/encryptionKey.txt";

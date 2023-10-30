@@ -1,5 +1,6 @@
 package application.viewControllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -136,12 +138,41 @@ public class DashboardController {
 		dbConnector.initialiseDB();
 		ResultSet rs = dbConnector.QueryReturnResultsFromPatients();
 		while (rs.next()) {
-			String encryptionKey = rs.getString("EncryptionKey"); // Retrieve the encryption key
+			String encryptionKey = rs.getString("EncryptionKey"); // Retrieve the encryption key from database
 			int id = rs.getInt("patientId");
 			String familyName = DataEncryptorDecryptor.decrypt(rs.getString("lastName"), encryptionKey);
 			String givenName = DataEncryptorDecryptor.decrypt(rs.getString("firstName"), encryptionKey);
 			Patient patient = new Patient(id, familyName, givenName);
 			patientOL.add(patient);
+			
+			// read details with local key; however you need the key for each patient
+//			String os = System.getProperty("os.name").toLowerCase();
+//			String filePath;
+//
+//			if (os.contains("win")) {
+//				// Windows
+//				String userProfile = System.getenv("USERPROFILE");
+//				filePath = userProfile + "\\Documents\\encryptionKey.txt";
+//			} else if (os.contains("mac")) {
+//				// macOS
+//				filePath = System.getProperty("user.home") + "/Documents/encryptionKey.txt";
+//			} else {
+//				// Linux - no idea if this works or not, can't test
+//				filePath = System.getProperty("user.home") + "/Documents/encryptionKey.txt";
+//			}
+//			
+//			File file = new File(filePath);
+//			Scanner sc = new Scanner(file);
+//			String key;
+//			String localFamilyName;
+//			String localGivenName;
+//			
+//			key = sc.next();
+//			localFamilyName = DataEncryptorDecryptor.decrypt(rs.getString("lastName"), key);
+//			localGivenName = DataEncryptorDecryptor.decrypt(rs.getString("firstName"), key);
+//			System.out.println(localFamilyName + localGivenName);
+//			sc.close();
+//			System.out.println(key);
 		}
 		patientDirectoryDBTV.setItems(patientOL);
 		dbConnector.closeConnection();

@@ -568,13 +568,14 @@ public class DBConnector {
 	    }
 		
 		/**
-		 * This is used in this class and the patient info view
+		 * This is used in this class and the patient info view for the next patient function
 		 * @param patientId
 		 * @return
 		 * @throws SQLException
+		 * @deprecated
 		 */
 		public ResultSet QueryReturnResultsFromPatientId(String patientId) throws SQLException {
-			String sql = "SELECT * FROM UHDD.test3 WHERE ID = ?";
+			String sql = "SELECT * FROM UHDD..patient_data WHERE ID = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, patientId);
 			System.out.println(sql);
@@ -685,9 +686,10 @@ public class DBConnector {
 		 * @param patientName
 		 * @return
 		 * @throws SQLException
+		 * @deprecated
 		 */
 		public ResultSet QueryReturnResultsFromPatientName(String patientName) throws SQLException {
-			String sql = "SELECT * FROM UHDD.test3 WHERE firstName like ? and lastName like ?";
+			String sql = "SELECT * FROM UHDD.patient_data WHERE firstName like ? and lastName like ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			String[] name = patientName.split(" ");
 			String fName = name[0];

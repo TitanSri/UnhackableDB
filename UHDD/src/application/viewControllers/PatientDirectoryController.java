@@ -1,5 +1,7 @@
 package application.viewControllers;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -521,6 +523,28 @@ public class PatientDirectoryController {
 		                dbConnector.getConnection() // Pass the Connection object
 		        );
 		        dbConnector.closeConnection();
+		        
+		        // save the encryption key to the local computer
+		        String os = System.getProperty("os.name").toLowerCase();
+				String filePath;
+
+				if (os.contains("win")) {
+					// Windows
+					String userProfile = System.getenv("USERPROFILE");
+					filePath = userProfile + "\\Documents\\encyptionKey.txt";
+				} else if (os.contains("mac")) {
+					// macOS
+					filePath = System.getProperty("user.home") + "/Documents/encryptionKey.txt";
+				} else {
+					// Linux - no idea if this works or not, can't test
+					filePath = System.getProperty("user.home") + "/Documents/encryptionKey.txt";
+				}
+
+				File path = new File(filePath);
+				FileWriter wr = new FileWriter(path);
+				wr.write(encryptionKey);
+				wr.flush();
+				wr.close();
 		    }
 		}
 

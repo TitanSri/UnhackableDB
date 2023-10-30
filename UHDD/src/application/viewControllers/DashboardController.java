@@ -19,6 +19,7 @@ import com.calendarfx.model.Entry;
 
 import application.CalendarApp;
 import application.DBConnector;
+import application.DataEncryptorDecryptor;
 import application.Main;
 import application.Medication;
 import application.Patient;
@@ -135,9 +136,10 @@ public class DashboardController {
 		dbConnector.initialiseDB();
 		ResultSet rs = dbConnector.QueryReturnResultsFromPatients();
 		while (rs.next()) {
+			String encryptionKey = rs.getString("EncryptionKey"); // Retrieve the encryption key
 			int id = rs.getInt("patientId");
-			String familyName = rs.getString("lastName");
-			String givenName = rs.getString("firstName");
+			String familyName = DataEncryptorDecryptor.decrypt(rs.getString("lastName"), encryptionKey);
+			String givenName = DataEncryptorDecryptor.decrypt(rs.getString("firstName"), encryptionKey);
 			Patient patient = new Patient(id, familyName, givenName);
 			patientOL.add(patient);
 		}

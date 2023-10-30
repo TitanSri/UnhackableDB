@@ -776,13 +776,13 @@ public class PatientInfoViewController {
 		if (os.contains("win")) {
 			// Windows
 			String userProfile = System.getenv("USERPROFILE");
-			filePath = userProfile + "\\Documents\\patientDetails.pdf";
+			filePath = userProfile + "\\Documents\\medicationDetails.pdf";
 		} else if (os.contains("mac")) {
 			// macOS
-			filePath = System.getProperty("user.home") + "/Documents/patientDetails.pdf";
+			filePath = System.getProperty("user.home") + "/Documents/medicationDetails.pdf";
 		} else {
 			// Linux - no idea if this works or not, can't test
-			filePath = System.getProperty("user.home") + "/Documents/patientDetails.pdf";
+			filePath = System.getProperty("user.home") + "/Documents/medicationDetails.pdf";
 		}
 		Patient patientNew = PatientService.getInstance().getCurrentPatient();
 		String patientId = String.valueOf(patientNew.getId());

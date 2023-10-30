@@ -49,17 +49,18 @@ public class CreateEncryptedPdf {
             // Fetch patient data
             ResultSet resultSet = dbconnector.QueryReturnResultsFromPatientDataId(patientId);
             if (resultSet.next()) {
-                document.add(new Paragraph("Patient Id: " + resultSet.getInt("patientId")));
-                document.add(new Paragraph("Gender: " + resultSet.getString("gender")));
-                document.add(new Paragraph("First Name: " + resultSet.getString("firstName")));
-                document.add(new Paragraph("Middle Name: " + resultSet.getString("middleName")));
-                document.add(new Paragraph("Last Name: " + resultSet.getString("lastName")));
-                document.add(new Paragraph("Date of Birth: " + resultSet.getString("dateOfBirth")));
-                document.add(new Paragraph("Address: " + resultSet.getString("address")));
-                document.add(new Paragraph("City: " + resultSet.getString("city")));
-                document.add(new Paragraph("State: " + resultSet.getString("state")));
-                document.add(new Paragraph("Tele: " + resultSet.getString("telephone")));
-                document.add(new Paragraph("Email: " + resultSet.getString("email")));
+	            String encryptionKey = resultSet.getString("EncryptionKey"); // Retrieve the encryption key
+                document.add(new Paragraph("Patient Id: " +  resultSet.getInt("patientId")));
+                document.add(new Paragraph("Gender: " + DataEncryptorDecryptor.decrypt(resultSet.getString("gender"), encryptionKey)));
+                document.add(new Paragraph("First Name: " + DataEncryptorDecryptor.decrypt(resultSet.getString("firstName"), encryptionKey)));
+                document.add(new Paragraph("Middle Name: " + DataEncryptorDecryptor.decrypt(resultSet.getString("middleName"), encryptionKey)));
+                document.add(new Paragraph("Last Name: " + DataEncryptorDecryptor.decrypt(resultSet.getString("lastName"), encryptionKey)));
+                document.add(new Paragraph("Date of Birth: " + DataEncryptorDecryptor.decrypt(resultSet.getString("dateOfBirth"), encryptionKey)));
+                document.add(new Paragraph("Address: " + DataEncryptorDecryptor.decrypt(resultSet.getString("address"), encryptionKey)));
+                document.add(new Paragraph("City: " + DataEncryptorDecryptor.decrypt(resultSet.getString("city"), encryptionKey)));
+                document.add(new Paragraph("State: " + DataEncryptorDecryptor.decrypt(resultSet.getString("state"), encryptionKey)));
+                document.add(new Paragraph("Tele: " + DataEncryptorDecryptor.decrypt(resultSet.getString("telephone"), encryptionKey)));
+                document.add(new Paragraph("Email: " + DataEncryptorDecryptor.decrypt(resultSet.getString("email"), encryptionKey)));
                 
             } else {
                 document.add(new Paragraph("No data found for patient ID: " + patientId));

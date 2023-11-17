@@ -42,8 +42,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -115,6 +117,9 @@ public class DashboardController {
 	
 	@FXML
 	public void initialize() throws ClassNotFoundException, SQLException, NullPointerException{
+		currentFXML = CurrentFXMLInstance.getInstance().getCurrentFXML();
+	    System.out.println("Current FXML: " + currentFXML);
+		
 		Platform.runLater(() -> {
 	        try {
 	            updateNextAppointment();
@@ -175,8 +180,50 @@ public class DashboardController {
 //			System.out.println(key);
 		}
 		patientDirectoryDBTV.setItems(patientOL);
+		
+		// Set row factory for clickable rows
+        patientDirectoryDBTV.setRowFactory(tv -> {
+            TableRow<Patient> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    Patient clickedPatient = row.getItem();
+                    PatientService.getInstance().setCurrentPatient(clickedPatient);
+                    System.out.println("Clicked on: " + clickedPatient.getFamilyName() + " " + clickedPatient.getGivenName());
+                    try {
+                        NonMouseEventSwitchToPatientInfoView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                
+                }
+            });
+            return row;
+        });
 		dbConnector.closeConnection();
 
+	}
+	
+	public void NonMouseEventSwitchToPatientInfoView() throws IOException {
+		if (!(currentFXML.equals("/application/fxmlScenes/PatientInfoViewOverview.fxml"))) {
+			currentFXML = "/application/fxmlScenes/PatientInfoViewOverview.fxml";
+			CurrentFXMLInstance.getInstance().setCurrentFXML(currentFXML);
+		    FXMLLoader loader = new FXMLLoader(getClass().getResource(currentFXML));
+		    Parent root = loader.load();
+		    Map<String, Object> namespace = loader.getNamespace();
+		    stage = new Stage();
+		    scene = new Scene(root);
+		    stage.setScene(scene);
+		    stage.show();
+		} else {
+			currentFXML = "/application/fxmlScenes/PatientInfoViewOverview.fxml";
+			CurrentFXMLInstance.getInstance().setCurrentFXML(currentFXML);
+		    FXMLLoader loader = new FXMLLoader(getClass().getResource(currentFXML));
+		    Parent root = loader.load();
+		    Map<String, Object> namespace = loader.getNamespace();
+		    scene = new Scene(root);
+		    stage.setScene(scene);
+		    stage.show();
+		}
 	}
 	
 	public void updatePrescribedMedsDBTableView() throws Exception{
